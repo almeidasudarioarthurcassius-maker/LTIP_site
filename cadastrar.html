@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Equipamento</title>
+    <style>
+        body {font-family: Arial; background-color: #f9fafb; margin: 20px;}
+        form {display: flex; flex-direction: column; width: 300px; margin: auto;}
+        input {margin-bottom: 10px; padding: 8px;}
+        button {background-color: #2563eb; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px;}
+        button:hover {background-color: #1e40af;}
+    </style>
+</head>
+<body>
+    <h2>Cadastrar Equipamento</h2>
+    <form action="/cadastrar" method="POST" enctype="multipart/form-data">
+        <input name="equipamento" placeholder="Equipamento" required>
+        <input name="funcionalidade" placeholder="Funcionalidade" required>
+        <input name="marca" placeholder="Marca" required>
+        <input name="modelo" placeholder="Modelo" required>
+        <input name="quantidade" type="number" placeholder="Quantidade" required>
+        <input name="tombo" placeholder="Tombo" required>
+        <input type="file" name="imagem">
+        <button type="submit">Salvar</button>
+    </form>
+    <p><a href="/">Voltar</a></p>
+</body>
+</html>

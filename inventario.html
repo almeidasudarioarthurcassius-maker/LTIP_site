@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventário</title>
+    <style>
+        body {font-family: Arial; background-color: #f9fafb; margin: 20px;}
+        table {width: 100%; border-collapse: collapse;}
+        th, td {border: 1px solid #ddd; padding: 8px; text-align: center;}
+        th {background-color: #2563eb; color: white;}
+        img {max-width: 100px;}
+        a {text-decoration: none; background: #2563eb; color: white; padding: 10px 15px; border-radius: 5px;}
+    </style>
+</head>
+<body>
+    <h2>Inventário de Equipamentos</h2>
+    <a href="/">Voltar</a>
+    <table>
+        <tr>
+            <th>Equipamento</th><th>Funcionalidade</th><th>Marca</th>
+            <th>Modelo</th><th>Quantidade</th><th>Tombo</th><th>Imagem</th>
+        </tr>
+        {% for item in inventario %}
+        <tr>
+            <td>{{ item.equipamento }}</td>
+            <td>{{ item.funcionalidade }}</td>
+            <td>{{ item.marca }}</td>
+            <td>{{ item.modelo }}</td>
+            <td>{{ item.quantidade }}</td>
+            <td>{{ item.tombo }}</td>
+            <td>{% if item.imagem %}<img src="/static/uploads/{{ item.imagem }}">{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
