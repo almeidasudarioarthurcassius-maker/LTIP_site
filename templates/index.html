@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratório de tecnologia da Informação do Profágua - LTIP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Laboratório de tecnologia da Informação do Profágua - LTIP</h1>
+        <div class="buttons">
+            <a href="{{ url_for('inventario') }}" class="btn">Inventário</a>
+            <a href="{{ url_for('cadastrar') }}" class="btn">Cadastrar Equipamento</a>
+            <a href="{{ url_for('gerenciamento') }}" class="btn">Gerenciamento de Máquinas</a>
+            <a href="{{ url_for('relatorios') }}" class="btn">Relatórios</a>
+        </div>
+    </div>
+</body>
+</html>
