@@ -143,36 +143,82 @@ def get_lab_info():
 # ---------------- Templates ----------------
 # Aqui você coloca o template antigo completo do site
 # e mantém a estrutura com "__CONTENT_BLOCK__" para cada página
-BASE_TEMPLATE = """<!DOCTYPE html>
+BASE_TEMPLATE = f"""<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>LTIP Laboratory</title>
-<style>
-body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;}
-.navbar {background:%s; padding:10px; color:%s;}
-.navbar a {color:%s; margin-right:15px; text-decoration:none;}
-.content {padding:20px;}
-.btn {padding:5px 10px; background:%s; color:%s; border:none; cursor:pointer;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTIP Laboratory</title>
+    <link rel="stylesheet" href="{{{{ url_for('static', filename='css/style.css') }}}}">
+    <style>
+        body {{
+            background-color: {COLOR_DARK};
+            color: {COLOR_WHITE};
+            font-family: Arial, sans-serif;
+        }}
+        h1, h2, h3 {{
+            color: {COLOR_LIGHT};
+        }}
+        .navbar {{
+            background-color: {COLOR_LIGHT};
+            color: {COLOR_WHITE};
+            padding: 10px;
+        }}
+        .container {{
+            margin: 20px auto;
+            max-width: 1200px;
+        }}
+        .btn {{
+            background-color: {COLOR_LIGHT};
+            color: {COLOR_WHITE};
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }}
+        .btn:hover {{
+            opacity: 0.9;
+        }}
+        footer {{
+            background-color: {COLOR_DARK};
+            color: {COLOR_WHITE};
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }}
+        table {{
+            width: 100%;
+            border-collapse: collapse;
+        }}
+        th, td {{
+            border: 1px solid {COLOR_LIGHT};
+            padding: 8px;
+            text-align: left;
+        }}
+        th {{
+            background-color: {COLOR_LIGHT};
+            color: {COLOR_WHITE};
+        }}
+        tr:nth-child(even) {{
+            background-color: {COLOR_DARK};
+        }}
+    </style>
 </head>
 <body>
-<div class="navbar">
-<a href="/">Início</a>
-<a href="/inventario">Inventário</a>
-<a href="/gerenciamento">Máquinas</a>
-<a href="/relatorios">Relatórios</a>
-{% if user %}
-<a href="/logout">Logout</a> ({{user.username}})
-{% else %}
-<a href="/login">Login</a>
-{% endif %}
-</div>
-<div class="content">
-__CONTENT_BLOCK__
-</div>
+    <nav class="navbar">
+        <h1>LTIP Laboratory</h1>
+    </nav>
+
+    <div class="container">
+        {{{{ content|safe }}}}
+    </div>
+
+    <footer>
+        <p>© 2025 LTIP Laboratory</p>
+    </footer>
 </body>
-</html>""" % (COLOR_DARK, COLOR_WHITE, COLOR_LIGHT, COLOR_LIGHT, COLOR_WHITE)
+</html>"""
 
 # ---------------- Rotas ----------------
 @app.route("/")
